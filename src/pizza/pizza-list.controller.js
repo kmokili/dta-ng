@@ -47,3 +47,5 @@ export class PizzaListController {
     }.bind(this)
   }
 }
+
+PizzaListController.$inject = ['$timeout']

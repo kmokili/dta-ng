@@ -4,7 +4,8 @@ import { toppings } from './toppings'
 export class PizzaController {
   constructor () {
     this.pizza = {
-      name: ''
+      name: '',
+      toppings: []
     }
     this.toppings = toppings
   }
@@ -14,6 +15,21 @@ export class PizzaController {
       alert('ERROR !')
       return
     }
-    console.log('save', this.pizza)
+
+    var keys = Object.keys(toppings)
+    console.log(keys)
+
+    // transformation toppings -> ['eggs', 'mushrooms']
+    this.pizza.toppings = this.pizza.toppings
+      // .map((v, i) => {
+      //   if (v) return keys[i]
+      // })
+      // .filter(v => v)
+      .reduce((acc, v, i) => {
+        if (v) acc.push(keys[i])
+        return acc
+      }, [])
+
+    console.log('save', this.pizza.toppings)
   }
 }
