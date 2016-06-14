@@ -1,15 +1,17 @@
 <div ng-controller="PizzaListController as $ctrl">
-  <input ng-model="query" type="text" class="form-control">
+
+  <input ng-model="$ctrl.query" type="text" class="form-control">
+
   <table class="table">
     <thead>
       <tr>
-        <th>Nom</th>
+        <th><a ng-click="predicate = 'name';reverse = !reverse">Nom</a></th>
         <th>Ingrédients</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="pizza in $ctrl.pizzas | filter:query track by $index">
+      <tr ng-repeat="pizza in $ctrl.pizzas | orderBy:predicate:reverse | filter:$ctrl.keep() track by $index">
         <td>{{ pizza.name }}</td>
         <td>{{ pizza | pizzaToppings }}</td>
         <td>
