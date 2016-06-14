@@ -14,7 +14,7 @@
     <tbody>
       <tr ng-repeat="pizza in $ctrl.pizzas | orderBy:$ctrl.sortPizzas():reverse | filter:$ctrl.keep() track by $index">
         <td>{{ pizza.name }}</td>
-        <td>{{ pizza | pizzaToppings }}</td>
+        <td>{{ pizza._toppings }}</td>
         <td>
           <button ng-click="$ctrl.cookPizza(pizza)" ng-if="!pizza.status" class="btn">cook me</button>
           <span ng-if="pizza.status">CUITE</span>
