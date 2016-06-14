@@ -5,14 +5,14 @@
   <table class="table">
     <thead>
       <tr>
-        <th><a ng-click="predicate = 'name';reverse = !reverse">Nom</a></th>
-        <th>Ingrédients</th>
-        <th>Statut</th>
+        <th><a ng-click="$ctrl.predicate='name';reverse=!reverse">Nom</a></th>
+        <th><a ng-click="$ctrl.predicate='toppings';reverse=!reverse">Ingrédients</a></th>
+        <th><a ng-click="$ctrl.predicate='status';reverse=!reverse">Statut</a></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="pizza in $ctrl.pizzas | orderBy:predicate:reverse | filter:$ctrl.keep() track by $index">
+      <tr ng-repeat="pizza in $ctrl.pizzas | orderBy:$ctrl.sortPizzas():reverse | filter:$ctrl.keep() track by $index">
         <td>{{ pizza.name }}</td>
         <td>{{ pizza | pizzaToppings }}</td>
         <td>

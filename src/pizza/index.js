@@ -7,8 +7,6 @@ export default
   angular.module('dtang.pizza', [])
     .controller('PizzaListController', PizzaListController)
 
-
-
     .filter('toto', function () {
       // mon filtre toto
       return function (input) {
@@ -24,6 +22,5 @@ export default
     })
 
     .filter('pizzaToppings', pizzaToppingsFilter)
-
 
     .name
