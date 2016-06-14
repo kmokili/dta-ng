@@ -1,5 +1,6 @@
 import angular from 'angular'
 import { PizzaListController } from './pizza-list.controller'
+import { pizzaToppingsFilter } from './pizza-toppings.filter'
 
 export default
 
@@ -21,6 +22,8 @@ export default
         return input + ' ' + '!'.repeat(size)
       }
     })
+
+    .filter('pizzaToppings', pizzaToppingsFilter)
 
 
     .name
