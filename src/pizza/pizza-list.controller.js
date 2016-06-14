@@ -28,8 +28,6 @@ export class PizzaListController {
     if (!pizza) return
 
     this.cookPizza(pizza)
-      .then(() => {
-        console.log('NEXT ?')
-      })
+      .then(this.cookPizzas.bind(this))
   }
 }
