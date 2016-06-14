@@ -29,13 +29,12 @@ export class PizzaListController {
   cookPizza (pizza) {
     return this.$timeout(() => {
       pizza.status = 1
-    }, 1000)
+    }, 3000)
   }
 
   cookPizzas () {
     const pizza = this.pizzas.find(p => p.status === 0)
     if (!pizza) return
-
     this.cookPizza(pizza)
       .then(this.cookPizzas.bind(this))
   }
@@ -47,17 +46,4 @@ export class PizzaListController {
         || (pizza.toppings || []).join('').indexOf(this.query) !== -1
     }.bind(this)
   }
-
-  sortPizzas () {
-    return function (pizza) {
-      if (this.predicate === 'name' || this.predicate === 'status') {
-        return pizza[this.predicate]
-      }
-      if (this.predicate === 'toppings') {
-        return (pizza.toppings || []).length
-      }
-      return 1
-    }.bind(this)
-  }
-
 }

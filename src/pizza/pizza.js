@@ -5,6 +5,7 @@ export class Pizza {
     this.status = status
   }
 
+
   toppings2string (pizza) {
     console.log('toppings2string')
     if (!this.toppings) return ''
