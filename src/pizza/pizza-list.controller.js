@@ -5,12 +5,12 @@ export class PizzaListController {
     this.$timeout = $timeout
 
     this.pizzas = [
-      new Pizza({ name: 'Pizza 1', status: 0, toppings: ['eggs', 'mushrooms'] }),
-      new Pizza({ name: 'Pizza 2', status: 0, toppings: [] }),
-      new Pizza({ name: 'Pizza 3', status: 0, toppings: ['eggs', 'eggs', 'mushrooms'] }),
-      new Pizza({ name: 'Pizza 4', status: 0 }),
-      new Pizza({ name: 'Pizza 5', status: 0 }),
-      { name: 'Pizza 5', status: 0, toppings: ['eggs'] }
+      new Pizza({ name: 'un', status: 0, toppings: ['eggs', 'mushrooms'] }),
+      new Pizza({ name: 'deux', status: 0, toppings: [] }),
+      new Pizza({ name: 'trois', status: 0, toppings: ['eggs', 'eggs', 'mushrooms'] }),
+      new Pizza({ name: 'quatre', status: 0 }),
+      new Pizza({ name: 'cinq', status: 0 }),
+      { name: 'six', status: 0, toppings: ['eggs'] }
     ]
   }
 

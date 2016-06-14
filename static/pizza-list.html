@@ -1,5 +1,5 @@
 <div ng-controller="PizzaListController as $ctrl">
-
+  <input ng-model="query" type="text" class="form-control">
   <table class="table">
     <thead>
       <tr>
@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="pizza in $ctrl.pizzas track by $index">
+      <tr ng-repeat="pizza in $ctrl.pizzas | filter:query track by $index">
         <td>{{ pizza.name }}</td>
         <td>{{ pizza | pizzaToppings }}</td>
         <td>
