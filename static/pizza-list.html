@@ -1,15 +1,20 @@
 <div ng-controller="PizzaListController as $ctrl">
 
+  <input ng-model="$ctrl.query" type="text" class="form-control">
+
   <table class="table">
     <thead>
       <tr>
-        <th>NOM</th>
+        <th><a ng-click="$ctrl.predicate='name';reverse=!reverse">Nom</a></th>
+        <th><a ng-click="$ctrl.predicate='_toppingsLength';reverse=!reverse">Ingrédients</a></th>
+        <th><a ng-click="$ctrl.predicate='status';reverse=!reverse">Statut</a></th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="pizza in $ctrl.pizzas track by $index">
+      <tr ng-repeat="pizza in $ctrl.pizzas | orderBy:$ctrl.sortPizzas():reverse | filter:$ctrl.keep() track by $index">
         <td>{{ pizza.name }}</td>
+        <td>{{ pizza._toppings }}</td>
         <td>
           <button ng-click="$ctrl.cookPizza(pizza)" ng-if="!pizza.status" class="btn">cook me</button>
           <span ng-if="pizza.status">CUITE</span>
@@ -21,5 +26,6 @@
   <button ng-click="$ctrl.addPizza()" class="btn btn-primary">
     Nouvelle Pizza
   </button>
+  <button ng-click="$ctrl.cookPizzas()" class="btn">Cuire toutes les pizzas</button>
 
 </div>
