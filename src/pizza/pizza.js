@@ -23,4 +23,11 @@ export class Pizza {
       })
       .join(', ')
   }
+
+  json () {
+    return {
+      name: this.name,
+      toppings: this.toppings
+    }
+  }
 }
