@@ -14,8 +14,18 @@ export class PizzaService {
   }
 
   getPizzas () {
-    return this.$timeout(2000)
+    return this.$timeout(500)
       .then(() => pizzas)
+  }
+
+  addPizza (pizza) {
+    var x = this.$timeout(500)
+    this.$timeout.cancel(x)
+    return x.then(() => {
+      console.log('ADD PIZZA')
+      pizzas.push(pizza)
+      return pizzas
+    })
   }
 }
 
