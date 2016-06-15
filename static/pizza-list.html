@@ -2,7 +2,11 @@
 
   <input ng-model="$ctrl.query" type="text" class="form-control">
 
-  <table class="table">
+  <div style="text-align:center" ng-if="!$ctrl.pizzas">
+    <img src="images/loading.gif">
+  </div>
+
+  <table class="table" ng-if="$ctrl.pizzas">
     <thead>
       <tr>
         <th><a ng-click="$ctrl.predicate='name';reverse=!reverse">Nom</a></th>
