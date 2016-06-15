@@ -20,6 +20,6 @@ export default
 
     .filter('pizzaToppings', pizzaToppingsFilter)
 
-    .factory('PizzaService', PizzaService)
+    .service('PizzaService', PizzaService)
 
     .name
