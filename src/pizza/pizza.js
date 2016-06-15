@@ -27,7 +27,8 @@ export class Pizza {
   json () {
     return {
       name: this.name,
-      toppings: this.toppings
+      toppings: this.toppings,
+      status: this.status
     }
   }
 }

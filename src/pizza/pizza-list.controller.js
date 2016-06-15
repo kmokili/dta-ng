@@ -1,30 +1,25 @@
 import { Pizza } from './pizza'
 
 export class PizzaListController {
-  constructor ($timeout, PizzaService, $http) {
-    $http({
-      url: 'http://192.168.99.2:1337/pizzas',
-      method: 'GET'
-    }).then(response => {
-      console.log('response', response.data)
-    })
-
-
+  constructor ($timeout, PizzaService) {
     this.$timeout = $timeout
     this.PizzaService = PizzaService
 
     // tri par défaut
     this.predicate = 'name'
 
-    console.log('PizzaService', PizzaService)
     PizzaService.getPizzas()
       .then(pizzas => {
-        this.pizzas = pizzas
-          .map(pizza => {
-            pizza._toppings = pizza.toppings2string()
-            pizza._toppingsLength = (pizza.toppings || []).length
-            return pizza
-          })
+        this.pizzas = this.initPizzas(pizzas)
+      })
+  }
+
+  initPizzas (pizzas) {
+    return pizzas
+      .map(pizza => {
+        pizza._toppings = pizza.toppings2string()
+        pizza._toppingsLength = (pizza.toppings || []).length
+        return pizza
       })
   }
 
@@ -58,10 +53,10 @@ export class PizzaListController {
   keep () {
     return function (pizza) {
       if (!this.query) return true
-      return pizza.name.indexOf(this.query) !== -1 ||
-        (pizza.toppings || []).join('').indexOf(this.query) !== -1
+      return pizza.name.indexOf(this.query) !== -1
+        || (pizza.toppings || []).join('').indexOf(this.query) !== -1
     }.bind(this)
   }
 }
 
-PizzaListController.$inject = ['$timeout', 'PizzaService', '$http']
+PizzaListController.$inject = ['$timeout', 'PizzaService']
