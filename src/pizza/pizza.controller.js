@@ -7,6 +7,11 @@ export class PizzaController {
       .then(pizza => {
         this.pizza = pizza
       })
+
+    this.PizzaService.getToppings()
+      .then(toppings => {
+        this.toppings = toppings
+      })
   }
 
   savePizza (form) {

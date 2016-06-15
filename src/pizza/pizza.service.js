@@ -1,11 +1,15 @@
 import { Pizza } from './pizza'
 
 const url = 'http://localhost:3000/pizzas'
+const urlToppings = 'http://localhost:3000/toppings'
+
+let toppings = null
 
 export class PizzaService {
-  constructor ($timeout, $http) {
+  constructor ($timeout, $http, $q) {
     this.$timeout = $timeout
     this.$http = $http
+    this.$q = $q
   }
 
   getPizzas () {
@@ -30,6 +34,19 @@ export class PizzaService {
       return this.getPizzas()
     })
   }
+
+  getToppings () {
+    if (toppings) {
+      return this.$q.resolve(toppings)
+    } else {
+      return this.$http.get(urlToppings)
+        .then(response => {
+          toppings = response.data
+          return toppings
+        })
+    }
+  }
 }
 
-PizzaService.$inject = ['$timeout', '$http']
+
+PizzaService.$inject = ['$timeout', '$http', '$q']
