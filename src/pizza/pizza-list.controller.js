@@ -1,7 +1,15 @@
 import { Pizza } from './pizza'
 
 export class PizzaListController {
-  constructor ($timeout, PizzaService) {
+  constructor ($timeout, PizzaService, $http) {
+    $http({
+      url: 'http://192.168.99.2:1337/pizzas',
+      method: 'GET'
+    }).then(response => {
+      console.log('response', response.data)
+    })
+
+
     this.$timeout = $timeout
     this.PizzaService = PizzaService
 
@@ -56,4 +64,4 @@ export class PizzaListController {
   }
 }
 
-PizzaListController.$inject = ['$timeout', 'PizzaService']
+PizzaListController.$inject = ['$timeout', 'PizzaService', '$http']
