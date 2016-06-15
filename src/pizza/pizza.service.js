@@ -1,5 +1,7 @@
 import { Pizza } from './pizza'
 
+const url = 'http://localhost:3000/pizzas'
+
 export class PizzaService {
   constructor ($timeout, $http) {
     this.$timeout = $timeout
@@ -7,17 +9,25 @@ export class PizzaService {
   }
 
   getPizzas () {
-    return this.$http.get('http://192.168.99.2:1337/pizzas')
+    return this.$http.get(url)
       .then(({data: pizzas}) => pizzas.map(pizzaJson => new Pizza(pizzaJson)))
+  }
+
+  getPizza (id) {
+    return this.$http.get(url + '/' + id)
+      .then(response => response.data)
+  }
+
+  savePizza (pizza) {
+    return this.$http.put(url + '/' + pizza.id, pizza)
   }
 
   addPizza (pizza) {
     return this.$http.post(
-      'http://192.168.99.2:1337/pizzas',
+      url,
       pizza // ou pizza.json() si besoin
     ).then(response => {
-      console.log('ici', response)
-      return response.data
+      return this.getPizzas()
     })
   }
 }

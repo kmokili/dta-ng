@@ -6,10 +6,14 @@
     display: block
   }
 </style>
-<div ng-controller="PizzaController as $ctrl">
-  <form name="pizzaForm"
-    ng-submit="$ctrl.savePizza(pizzaForm)"
-    novalidate>
+
+<h3>Édition pizza</h3>
+
+<form name="pizzaForm"
+  ng-submit="$ctrl.savePizza(pizzaForm)"
+  novalidate>
+
+  <div class="form-group">
 
     <label for="name">Nom :</label>
     <input
@@ -18,26 +22,14 @@
       required
       name="name"
       type="text"
+      class="form-control"
       id="name">
     <p class="text-danger" ng-if="pizzaForm.name.$invalid && pizzaForm.name.$touched">Nom obligatoire</p>
-    <br>
 
-    <!--<select ng-model="$ctrl.pizza.toppings" name="" multiple="true"
-      ng-options="key as value.fr for (key, value) in $ctrl.toppings">
-    </select>-->
+  </div>
 
-    <!--<label for="topping_{{ topping }}" ng-repeat="(topping, toppingName) in $ctrl.toppings track by $index">
-      {{ topping }}
-      <input id="topping_{{ topping }}"
-        type="checkbox"
-        ng-model="$ctrl.pizza.toppings[$index]">
-    </label>-->
+  <button type="submit" class="btn btn-primary">Enregistrer</button>
 
-    <br>
+  <a ng-href="#/" type="button" class="btn">Annuler</a>
 
-    <button type="submit">save</button>
-
-    <pre>{{ $ctrl.pizza | json }}</pre>
-
-  </form>
-</div>
+</form>

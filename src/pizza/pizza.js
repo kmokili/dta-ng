@@ -1,8 +1,9 @@
 export class Pizza {
-  constructor ({name, toppings, status}) {
+  constructor ({name, toppings, status, id}) {
     this.name = name
     this.toppings = toppings
     this.status = status
+    this.id = id
   }
 
   toppings2string (pizza) {

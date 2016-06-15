@@ -2,6 +2,9 @@ import { Pizza } from './pizza'
 
 export class PizzaListController {
   constructor ($timeout, PizzaService) {
+
+    console.log('INSTANCIATION DU PizzaListController')
+
     this.$timeout = $timeout
     this.PizzaService = PizzaService
 
@@ -35,6 +38,11 @@ export class PizzaListController {
       .catch(err => {
         window.alert('Pb lors de l\'ajout de la pizza')
       })
+  }
+
+  editPizza (pizza) {
+    this.pizza = pizza
+    this.PizzaService.editPizza(pizza)
   }
 
   cookPizza (pizza) {

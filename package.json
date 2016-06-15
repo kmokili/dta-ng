@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "json": "json-server db.json",
     "start": "budo src/index.js:build.js --dir static --host localhost --open --live -- -t babelify"
   },
   "author": "",
@@ -21,6 +22,7 @@
   },
   "dependencies": {
     "angular": "^1.5.6",
+    "angular-route": "^1.5.6",
     "dexie": "^1.4.1",
     "moment": "^2.13.0"
   }
