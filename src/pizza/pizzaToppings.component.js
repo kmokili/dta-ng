@@ -52,7 +52,7 @@ export const PizzaToppingsComponent = {
   controller: PizzaToppingsComponentController,
   template: `
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6" dta-drop="$ctrl.dropped()" style="border:1px solid red">
         <h4>Pizza toppings</h4>
         <ul dta-drop="$ctrl.dropped()" class="list-group">
           <li class="list-group-item" ng-repeat="topping in $ctrl.toppings track by $index">
