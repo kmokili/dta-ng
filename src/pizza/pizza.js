@@ -34,6 +34,11 @@ export class Pizza {
     return this
   }
 
+  delTopping (topping) {
+    const pos = this.toppings.indexOf(topping)
+    this.toppings.splice(pos, 1)
+  }
+
   json () {
     return {
       name: this.name,
