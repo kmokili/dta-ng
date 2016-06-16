@@ -1,7 +1,11 @@
 class PizzaToppingsComponentController {
+  constructor ($element) {
+    this.$element = $element
+  }
+
   // $onChanges (changes) {
   //   if (changes.allToppings && this.allToppings) {
-  //     console.log(this.allToppings)
+  //     console.log(this.$element.find('.sourceTopping'))
   //   }
   // }
 
@@ -27,14 +31,14 @@ export const PizzaToppingsComponent = {
     <div class="row">
       <div class="col-md-6">
         <h4>toppings</h4>
-        <ul>
-          <li ng-repeat="topping in $ctrl.toppings track by $index">{{ topping }}</li>
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="topping in $ctrl.toppings track by $index">{{ topping }}</li>
         </ul>
       </div>
       <div class="col-md-6">
         <h4>available toppings</h4>
-          <ul>
-            <li ng-repeat="(topping, value) in $ctrl.allToppings track by $index">
+          <ul class="list-group">
+            <li draggable class="sourceTopping list-group-item" ng-repeat="(topping, value) in $ctrl.allToppings track by $index">
               <a href ng-click="$ctrl.addToppingDUCOMPONENT(topping)">
                 {{ topping }}
               </a>
