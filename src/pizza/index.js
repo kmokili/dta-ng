@@ -3,9 +3,8 @@ import { PizzaListController } from './pizza-list.controller'
 import { pizzaToppingsFilter } from './pizza-toppings.filter'
 import { PizzaController } from './pizza.controller'
 import { PizzaService } from './pizza.service.js'
-import { Pizza } from './pizza'
-import { PizzaComponent } from './pizzaToppings.component'
-
+import { PizzaToppingsComponent } from './pizzaToppings.component'
+console.log(PizzaToppingsComponent)
 export default
 
   angular.module('dtang.pizza', [])
@@ -19,5 +18,5 @@ export default
     })
     .filter('pizzaToppings', pizzaToppingsFilter)
     .service('PizzaService', PizzaService)
-    .component('pizzaToppings', PizzaComponent)
+    .component('pizzaToppings', PizzaToppingsComponent)
     .name

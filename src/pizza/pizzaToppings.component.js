@@ -1,17 +1,32 @@
-export const PizzaComponent = {
+class PizzaToppingsComponentController {
+  $onInit () {
+    console.log(this.allToppings)
+  }
+  $onChanges (changes) {
+    console.log(changes)
+  }
+}
+
+export const PizzaToppingsComponent = {
   bindings: {
-    toppings: '<list'
+    toppings: '<',
+    allToppings: '<'
   },
+  controller: PizzaToppingsComponentController,
   template: `
-    <div class="well">
-      <h4>toppings</h4>
-      <pre>{{ $ctrl.toppings }}</pre>
-    </div>
-    <div class="well">
-      <h4>toppings</h4>
-      <ul ng-repeat="topping in $ctrl.toppings" track by $index>
-        <li>{{ topping }}</li>
-      </ul>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>toppings</h4>
+        <ul>
+          <li ng-repeat="topping in $ctrl.toppings track by $index">{{ topping }}</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h4>available toppings</h4>
+        <ul>
+          <li ng-repeat="(available, value) in $ctrl.allToppings track by $index">{{ available }}</li>
+        </ul>
+      </div>
     </div>
   `
 }
