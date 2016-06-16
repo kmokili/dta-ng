@@ -1,6 +1,12 @@
-<div ng-controller="PizzaListController as $ctrl">
+<h3>Liste des pizzas</h3>
 
-  <input ng-model="$ctrl.query" type="text" class="form-control">
+<div style="text-align:center" ng-if="!$ctrl.pizzas">
+  <img src="images/loading.gif">
+</div>
+
+<div ng-if="$ctrl.pizzas">
+
+  <input placeholder="Rechercher ..." ng-model="$ctrl.query" type="text" class="form-control">
 
   <table class="table">
     <thead>
@@ -8,12 +14,11 @@
         <th><a ng-click="$ctrl.predicate='name';reverse=!reverse">Nom</a></th>
         <th><a ng-click="$ctrl.predicate='_toppingsLength';reverse=!reverse">Ingrédients</a></th>
         <th><a ng-click="$ctrl.predicate='status';reverse=!reverse">Statut</a></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="pizza in $ctrl.pizzas | orderBy:$ctrl.sortPizzas():reverse | filter:$ctrl.keep() track by $index">
-        <td>{{ pizza.name }}</td>
+      <tr ng-repeat="pizza in $ctrl.pizzas | orderBy:$ctrl.predicate:reverse | filter:$ctrl.keep() track by $index">
+        <td><a href="#/pizza/{{ pizza.id }}" >{{ pizza.name }}</a></td>
         <td>{{ pizza._toppings }}</td>
         <td>
           <button ng-click="$ctrl.cookPizza(pizza)" ng-if="!pizza.status" class="btn">cook me</button>

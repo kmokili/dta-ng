@@ -1,12 +1,12 @@
 export class Pizza {
-  constructor ({name, toppings, status}) {
+  constructor ({name, toppings, status, id}) {
     this.name = name
     this.toppings = toppings
     this.status = status
+    this.id = id
   }
 
   toppings2string (pizza) {
-    console.log('toppings2string')
     if (!this.toppings) return ''
     return this.toppings
 
@@ -23,5 +23,13 @@ export class Pizza {
         return `${topping}`
       })
       .join(', ')
+  }
+
+  json () {
+    return {
+      name: this.name,
+      toppings: this.toppings,
+      status: this.status
+    }
   }
 }
