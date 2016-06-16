@@ -48,5 +48,4 @@ export class PizzaService {
   }
 }
 
-
 PizzaService.$inject = ['$timeout', '$http', '$q']

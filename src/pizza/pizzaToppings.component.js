@@ -27,6 +27,16 @@ class PizzaToppingsComponentController {
     // DONC Appel de $ctrl.addToppingDUPIZZACONTROLLER({ topping: topping })
   }
 
+  delToppingDUCOMPONENT (topping) {
+    this.onDelTopping({
+      $event: { topping } // équivalent à $event: { topping: topping }
+    })
+
+    // EVALUATION DE $ctrl.addToppingDUPIZZACONTROLLER($event)
+    // En remplaçant $event par { topping }
+    // DONC Appel de $ctrl.addToppingDUPIZZACONTROLLER({ topping: topping })
+  }
+
   dropped () {
     this.addToppingDUCOMPONENT(this.draggedTopping)
   }
