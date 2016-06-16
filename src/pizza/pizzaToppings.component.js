@@ -1,16 +1,26 @@
 class PizzaToppingsComponentController {
-  $onInit () {
-    console.log(this.allToppings)
-  }
-  $onChanges (changes) {
-    console.log(changes)
+  // $onChanges (changes) {
+  //   if (changes.allToppings && this.allToppings) {
+  //     console.log(this.allToppings)
+  //   }
+  // }
+
+  addToppingDUCOMPONENT (topping) {
+    this.onAddTopping({
+      $event: { topping } // équivalent à $event: { topping: topping }
+    })
+
+    // EVALUATION DE $ctrl.addToppingDUPIZZACONTROLLER($event)
+    // En remplaçant $event par { topping }
+    // DONC Appel de $ctrl.addToppingDUPIZZACONTROLLER({ topping: topping })
   }
 }
 
 export const PizzaToppingsComponent = {
   bindings: {
     toppings: '<',
-    allToppings: '<'
+    allToppings: '<',
+    onAddTopping: '&'
   },
   controller: PizzaToppingsComponentController,
   template: `
@@ -23,9 +33,13 @@ export const PizzaToppingsComponent = {
       </div>
       <div class="col-md-6">
         <h4>available toppings</h4>
-        <ul>
-          <li ng-repeat="(available, value) in $ctrl.allToppings track by $index">{{ available }}</li>
-        </ul>
+          <ul>
+            <li ng-repeat="(topping, value) in $ctrl.allToppings track by $index">
+              <a href ng-click="$ctrl.addToppingDUCOMPONENT(topping)">
+                {{ topping }}
+              </a>
+            </li>
+          </ul>
       </div>
     </div>
   `

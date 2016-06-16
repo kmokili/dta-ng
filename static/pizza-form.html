@@ -19,8 +19,12 @@
 
   </div>
 
-  <div class="form-group">
-    <pizza-toppings toppings="$ctrl.pizza.toppings" all-toppings="$ctrl.toppings"></pizza-toppings>
+    <div class="form-group">
+    <pizza-toppings
+      toppings="$ctrl.pizza.toppings"
+      all-toppings="$ctrl.toppings"
+      on-add-topping="$ctrl.addToppingDUPIZZACONTROLLER($event)"
+      ></pizza-toppings>
   </div>
 
   <div class="form-group">
@@ -28,7 +32,7 @@
     <a ng-href="#/" type="button" class="btn">Annuler</a>
   </div>
 
-
-  <pre>{{ $ctrl.toppings | json }}</pre>
+<!--
+  <pre>{{ $ctrl.toppings | json }}</pre>-->
 
 </form>

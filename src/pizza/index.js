@@ -4,7 +4,7 @@ import { pizzaToppingsFilter } from './pizza-toppings.filter'
 import { PizzaController } from './pizza.controller'
 import { PizzaService } from './pizza.service.js'
 import { PizzaToppingsComponent } from './pizzaToppings.component'
-console.log(PizzaToppingsComponent)
+
 export default
 
   angular.module('dtang.pizza', [])
