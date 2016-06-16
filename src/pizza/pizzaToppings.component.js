@@ -55,7 +55,9 @@ export const PizzaToppingsComponent = {
       <div class="col-md-6">
         <h4>Available toppings</h4>
           <ul class="list-group">
-            <li draggable dta-drag="$ctrl.draggedTopping = topping" class="sourceTopping list-group-item" ng-repeat="(topping, value) in $ctrl.allToppings track by $index">
+            <li draggable dta-drag="$ctrl.draggedTopping = topping" 
+              class="sourceTopping list-group-item" 
+              ng-repeat="(topping, value) in $ctrl.allToppings track by $index">
               <a href ng-click="$ctrl.addToppingDUCOMPONENT(topping)">
                 {{ topping }}
               </a>
