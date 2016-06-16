@@ -45,7 +45,8 @@ angular.module('dtang', [
   })
 
 
-// .component('dtaUser', {
+
+// .component('pizzaToppings', {
 //   bindings: {
 //     user: '=',
 //     color: '@userColor',

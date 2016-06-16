@@ -4,6 +4,7 @@ import { pizzaToppingsFilter } from './pizza-toppings.filter'
 import { PizzaController } from './pizza.controller'
 import { PizzaService } from './pizza.service.js'
 import { Pizza } from './pizza'
+import { PizzaComponent } from './pizzaToppings.component'
 
 export default
 
@@ -21,5 +22,7 @@ export default
     .filter('pizzaToppings', pizzaToppingsFilter)
 
     .service('PizzaService', PizzaService)
+
+    .component('pizzaToppings', PizzaComponent)
 
     .name
