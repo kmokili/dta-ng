@@ -5,9 +5,17 @@ class PizzaToppingsComponentController {
 
   // $onChanges (changes) {
   //   if (changes.allToppings && this.allToppings) {
-  //     console.log(this.$element.find('.sourceTopping'))
+  //     this.sources = this.$element[0].getElementsByClassName('sourceTopping')
+  //     Array.prototype.slice.call(this.sources)
+  //       .forEach(li => {
+  //         li.addEventListener('dragstart', evt => {
+  //           console.log('dragstart', evt)
+  //           //this.topping =
+  //         })
+  //       })
   //   }
   // }
+
 
   addToppingDUCOMPONENT (topping) {
     this.onAddTopping({
@@ -18,27 +26,36 @@ class PizzaToppingsComponentController {
     // En remplaçant $event par { topping }
     // DONC Appel de $ctrl.addToppingDUPIZZACONTROLLER({ topping: topping })
   }
+
+  dropped () {
+    this.addToppingDUCOMPONENT(this.draggedTopping)
+  }
 }
 
 export const PizzaToppingsComponent = {
   bindings: {
     toppings: '<',
     allToppings: '<',
-    onAddTopping: '&'
+    onAddTopping: '&',
+    onDelTopping: '&'
   },
   controller: PizzaToppingsComponentController,
   template: `
     <div class="row">
       <div class="col-md-6">
-        <h4>toppings</h4>
-        <ul class="list-group">
-          <li class="list-group-item" ng-repeat="topping in $ctrl.toppings track by $index">{{ topping }}</li>
+        <h4>Pizza toppings</h4>
+        <ul dta-drop="$ctrl.dropped()" class="list-group">
+          <li class="list-group-item" ng-repeat="topping in $ctrl.toppings track by $index">
+            <a href ng-click="$ctrl.delToppingDUCOMPONENT(topping)">
+              {{ topping }}
+            </a>
+          </li>
         </ul>
       </div>
       <div class="col-md-6">
-        <h4>available toppings</h4>
+        <h4>Available toppings</h4>
           <ul class="list-group">
-            <li draggable class="sourceTopping list-group-item" ng-repeat="(topping, value) in $ctrl.allToppings track by $index">
+            <li draggable dta-drag="$ctrl.draggedTopping = topping" class="sourceTopping list-group-item" ng-repeat="(topping, value) in $ctrl.allToppings track by $index">
               <a href ng-click="$ctrl.addToppingDUCOMPONENT(topping)">
                 {{ topping }}
               </a>
