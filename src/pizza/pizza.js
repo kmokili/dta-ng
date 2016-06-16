@@ -25,6 +25,15 @@ export class Pizza {
       .join(', ')
   }
 
+  addTopping (topping) {
+    // 2 identical toppings max
+    if (this.toppings.filter(t => t === topping).length > 1) return this
+
+    this.toppings.push(topping)
+
+    return this
+  }
+
   json () {
     return {
       name: this.name,

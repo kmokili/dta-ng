@@ -3,6 +3,14 @@
     {
       "id": 1,
       "name": "Pizza"
+    },
+    {
+      "id": 2,
+      "name": "Pizza Champi et oeufs",
+      "toppings": [
+        "eggs",
+        "mushrooms"
+      ]
     }
   ],
 

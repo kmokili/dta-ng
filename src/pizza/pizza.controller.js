@@ -14,6 +14,10 @@ export class PizzaController {
       })
   }
 
+  addToppingDUPIZZACONTROLLER ({ topping }) {
+    this.pizza.addTopping(topping)
+  }
+
   savePizza (form) {
     if (form.$invalid) return
     this.PizzaService.savePizza(this.pizza)
