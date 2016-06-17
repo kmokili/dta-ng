@@ -26,6 +26,24 @@
         "eggs"
       ],
       "id": 4
+    },
+    {
+      "name": "Tomazzo",
+      "toppings": [
+        "tomato sauce",
+        "mozzarella"
+      ],
+      "id": 5
+    },
+    {
+      "name": "Bizzaro",
+      "toppings": [
+        "artichoke",
+        "green olives",
+        "sweet corn",
+        "peas"
+      ],
+      "id": 6
     }
   ],
   "toppings": {

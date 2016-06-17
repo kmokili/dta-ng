@@ -37,10 +37,17 @@ export class PizzaController {
   }
 
   savePizza ({ pizza }) {
-    this.PizzaService.savePizza(pizza)
-      .then(() => {
-        this.$location.path('/')
-      })
+    if (pizza.id) {
+      this.PizzaService.savePizza(pizza)
+        .then(() => {
+          this.$location.path('/')
+        })
+    } else {
+      this.PizzaService.addPizza(pizza)
+        .then(() => {
+          this.$location.path('/')
+        })
+    }
   }
 }
 
