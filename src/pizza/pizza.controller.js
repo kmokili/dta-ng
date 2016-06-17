@@ -22,9 +22,8 @@ export class PizzaController {
     this.pizza.delTopping(topping)
   }
 
-  savePizza (form) {
-    if (form.$invalid) return
-    this.PizzaService.savePizza(this.pizza)
+  savePizza ({ pizza }) {
+    this.PizzaService.savePizza(pizza)
       .then(() => {
         this.$location.path('/')
       })

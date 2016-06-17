@@ -5,6 +5,10 @@
     display: block
   }
 
-  .toppings {
-    padding-left: 2em;
+  ul.toppings li {
+    float: left;
+    list-style-type: none;
+    padding: .5em;
+    border: 1px solid #ddd;
+    margin: .5em;
   }
