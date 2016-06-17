@@ -40,6 +40,10 @@ class PizzaToppingsComponentController {
   dropped () {
     this.addToppingDUCOMPONENT(this.draggedTopping)
   }
+
+  dragTopping (topping) {
+    this.draggedTopping = topping
+  }
 }
 
 export const PizzaToppingsComponent = {
@@ -64,7 +68,7 @@ export const PizzaToppingsComponent = {
         </ul>
       </div>
       <div class="col-md-6">
-        <h4>available toppings</h4>
+        <h4>Available toppings</h4>
           <ul class="list-group">
             <li class="list-group-item"
               ng-repeat="(topping, value) in $ctrl.allToppings track by $index"
