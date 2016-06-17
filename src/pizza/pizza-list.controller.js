@@ -1,11 +1,11 @@
 import { Pizza } from './pizza'
 
 export class PizzaListController {
-  constructor ($timeout, PizzaService) {
+  constructor ($timeout, PizzaService, $location) {
 
     this.$timeout = $timeout
     this.PizzaService = PizzaService
-
+    this.$location = $location
     // tri par défaut
     this.predicate = 'name'
 
@@ -29,17 +29,18 @@ export class PizzaListController {
   }
 
   addPizza () {
-    const pizza = new Pizza({
-      name: 'new pizza',
-      toppings: ['eggs']
-    })
-    this.PizzaService.addPizza(pizza)
-      .then((pizzas) => {
-        this.pizzas = this.initPizzas(pizzas)
-      })
-      .catch(err => {
-        window.alert('Pb lors de l\'ajout de la pizza')
-      })
+    this.$location.path('/pizza')
+    // const pizza = new Pizza({
+    //   name: 'new pizza',
+    //   toppings: ['eggs']
+    // })
+    // this.PizzaService.addPizza(pizza)
+    //   .then((pizzas) => {
+    //     this.pizzas = this.initPizzas(pizzas)
+    //   })
+    //   .catch(err => {
+    //     window.alert('Pb lors de l\'ajout de la pizza')
+    //   })
   }
 
   cookPizza (pizza) {
@@ -64,4 +65,4 @@ export class PizzaListController {
   }
 }
 
-PizzaListController.$inject = ['$timeout', 'PizzaService']
+PizzaListController.$inject = ['$timeout', 'PizzaService', '$location']

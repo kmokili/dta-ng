@@ -1,12 +1,26 @@
+import { Pizza } from './pizza'
+
 export class PizzaController {
   constructor (PizzaService, $routeParams, $location) {
     this.PizzaService = PizzaService
     this.$location = $location
 
-    this.PizzaService.getPizza($routeParams.id)
-      .then(pizza => {
-        this.pizza = pizza
+    if ($routeParams.id) {
+      this.PizzaService.getPizza($routeParams.id)
+        .then(pizza => {
+          this.pizza = pizza
+        })
+    } else {
+      this.pizza = new Pizza({
+        name: '',
+        toppings: []
       })
+    }
+
+    // this.PizzaService.getPizza($routeParams.id)
+    //   .then(pizza => {
+    //     this.pizza = pizza
+    //   })
 
     this.PizzaService.getToppings()
       .then(toppings => {
