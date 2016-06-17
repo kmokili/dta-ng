@@ -7,6 +7,7 @@ import { PizzaController } from './pizza.controller'
 import { pizzaToppingsFilter } from './pizza-toppings.filter'
 import { PizzaService } from './pizza.service'
 import { PizzaToppingsComponent } from './pizzaToppings.component'
+import { PizzaFormComponent } from './pizzaForm.component'
 
 export default
 
@@ -22,5 +23,6 @@ angular.module('dtang.pizza', [
   .service('PizzaService', PizzaService)
 
   .component('pizzaToppings', PizzaToppingsComponent)
+  .component('pizzaForm', PizzaFormComponent)
 
   .name

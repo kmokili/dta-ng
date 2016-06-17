@@ -2,7 +2,8 @@
   "pizzas": [
     {
       "id": 1,
-      "name": "Pizza"
+      "name": "Pizza",
+      "toppings": []
     },
     {
       "id": 2,

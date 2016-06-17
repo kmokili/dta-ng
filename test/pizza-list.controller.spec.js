@@ -1,13 +1,13 @@
+import { fixtures } from './fixtures.spec'
 describe('Test du ToppingListController', function () {
-  var ctrl, _PizzaService, http
+  var ctrl, http
 
   beforeEach(angular.mock.module('dtang'));
 
-  beforeEach(angular.mock.inject(function ($rootScope, $controller, $httpBackend, PizzaService) {
+  beforeEach(angular.mock.inject(function ($rootScope, $controller, $httpBackend) {
     let scope = $rootScope.$new();
     ctrl = $controller("PizzaListController as ctrl", { $scope: scope })
     http = $httpBackend
-    _PizzaService = PizzaService
   }))
 
   it('should initialize predicate to name', function () {
@@ -15,20 +15,17 @@ describe('Test du ToppingListController', function () {
   })
 
   it('should load pizzas', function (done) {
-    http.when('GET', 'http://localhost:3000/pizzas').respond([
-      {
-        name: 'test',
-        toppings: [
-          'un',
-          'deux',
-          'trois'
-        ]
-      }
-    ])
+    http.when('GET', 'http://localhost:3000/pizzas').respond(fixtures.pizzas)
+
     ctrl.getPizzas()
         .then(() => {
-          console.log(ctrl.pizzas)
+          expect(ctrl.pizzas.length).toEqual(fixtures.pizzas.length)
         })
         .finally(done)
+
+    http.flush()
   })
+
+
 })
+

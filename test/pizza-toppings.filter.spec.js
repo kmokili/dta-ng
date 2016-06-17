@@ -1,47 +1,23 @@
 import { Pizza } from '../src/pizza/pizza'
+import { fixtures } from './fixtures.spec'
 
-describe("Test du filtre Topping", function () {
+describe('Test du filtre Topping', function () {
     var toppingFilter
 
-    beforeEach(angular.mock.module("dtang"));
-    // beforeEach(window.module("dtang"))
+    beforeEach(angular.mock.module('dtang'));
 
     beforeEach(angular.mock.inject(function ($filter) {
-    // beforeEach(inject(function ($filter) {
         toppingFilter = $filter('pizzaToppings')
     }))
 
-    it("should show toppings string", function () {
-        let pizza = new Pizza({
-          name: 'test',
-          toppings: [
-            'un',
-            'deux',
-            'trois'
-          ]
-        })
+    it('should show toppings string', function () {
+        let pizza = new Pizza(fixtures.pizzas[0])
         expect(toppingFilter(pizza)).toEqual("un, deux, trois")
     })
 
-    it("should show undefined string", function () {
-        let pizza = new Pizza({
-          name: 'test',
-          toppings: [
-            'undefined'
-          ]
-        })
-        expect(toppingFilter(pizza)).toEqual("undefined")
+    it('should show toppings with double string', function () {
+        let pizza = new Pizza(fixtures.pizzas[1])
+        expect(toppingFilter(pizza)).toEqual("un, deux x2")
     })
 
-    it("should show duplicate toopings this way (toppings x2)", function () {
-        let pizza = new Pizza({
-          name: 'Eggs and mush',
-          toppings: [
-            'eggs',
-            'eggs',
-            'mushrooms'
-          ]
-        })
-        expect(toppingFilter(pizza)).toEqual("eggs x2, mushrooms")
-    })
 })
