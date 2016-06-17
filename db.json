@@ -14,7 +14,7 @@
       ]
     },
     {
-      "name": "new pizza",
+      "name": "Egg Pizza",
       "toppings": [
         "eggs"
       ],
@@ -44,6 +44,24 @@
         "peas"
       ],
       "id": 6
+    },
+    {
+      "name": "Olive",
+      "toppings": [
+        "black olives",
+        "black olives"
+      ],
+      "id": 7
+    },
+    {
+      "name": "Sandwich Pizza",
+      "toppings": [
+        "ham",
+        "eggs",
+        "mozzarella",
+        "salami"
+      ],
+      "id": 8
     }
   ],
   "toppings": {

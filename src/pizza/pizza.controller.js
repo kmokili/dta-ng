@@ -37,17 +37,34 @@ export class PizzaController {
   }
 
   savePizza ({ pizza }) {
-    if (pizza.id) {
-      this.PizzaService.savePizza(pizza)
-        .then(() => {
-          this.$location.path('/')
-        })
-    } else {
-      this.PizzaService.addPizza(pizza)
-        .then(() => {
-          this.$location.path('/')
-        })
-    }
+    // var promise
+    // if (pizza.id) {
+    //   promise = this.PizzaService.savePizza(pizza)
+    // } else {
+    //   promise = this.PizzaService.addPizza(pizza)
+    // }
+    // promise.then(() => {
+    //   this.$location.path('/')
+    // })
+
+    var promise = (pizza.id)
+    ? promise = this.PizzaService.savePizza(pizza)
+    : promise = this.PizzaService.addPizza(pizza)
+    promise.then(() => {
+      this.$location.path('/')
+    })
+
+    // if (pizza.id) {
+    //   this.PizzaService.savePizza(pizza)
+    //     .then(() => {
+    //       this.$location.path('/')
+    //     })
+    // } else {
+    //   this.PizzaService.addPizza(pizza)
+    //     .then(() => {
+    //       this.$location.path('/')
+    //     })
+    // }
   }
 }
 
