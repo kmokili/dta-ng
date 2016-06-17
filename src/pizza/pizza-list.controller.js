@@ -9,7 +9,11 @@ export class PizzaListController {
     // tri par défaut
     this.predicate = 'name'
 
-    PizzaService.getPizzas()
+    this.getPizzas()
+  }
+
+  getPizzas () {
+    return this.PizzaService.getPizzas()
       .then(pizzas => {
         this.pizzas = this.initPizzas(pizzas)
       })
