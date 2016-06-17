@@ -40,6 +40,10 @@ class PizzaToppingsComponentController {
   dropped () {
     this.addToppingDUCOMPONENT(this.draggedTopping)
   }
+
+  dragTopping (topping) {
+    this.draggedTopping = topping
+  }
 }
 
 export const PizzaToppingsComponent = {
@@ -52,10 +56,11 @@ export const PizzaToppingsComponent = {
   controller: PizzaToppingsComponentController,
   template: `
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6" dta-drop="$ctrl.dropped()" style="border:1px solid red">
         <h4>Pizza toppings</h4>
-        <ul dta-drop="$ctrl.dropped()" class="list-group">
-          <li class="list-group-item" ng-repeat="topping in $ctrl.toppings track by $index">
+        <ul class="list-group">
+          <li class="list-group-item" 
+            ng-repeat="topping in $ctrl.toppings track by $index">
             <a href ng-click="$ctrl.delToppingDUCOMPONENT(topping)">
               {{ topping }}
             </a>
@@ -65,9 +70,9 @@ export const PizzaToppingsComponent = {
       <div class="col-md-6">
         <h4>Available toppings</h4>
           <ul class="list-group">
-            <li draggable dta-drag="$ctrl.draggedTopping = topping" 
-              class="sourceTopping list-group-item" 
-              ng-repeat="(topping, value) in $ctrl.allToppings track by $index">
+            <li class="list-group-item"
+              ng-repeat="(topping, value) in $ctrl.allToppings track by $index"
+              dta-drag="$ctrl.draggedTopping = topping">
               <a href ng-click="$ctrl.addToppingDUCOMPONENT(topping)">
                 {{ topping }}
               </a>
