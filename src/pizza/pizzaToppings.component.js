@@ -56,7 +56,7 @@ export const PizzaToppingsComponent = {
   controller: PizzaToppingsComponentController,
   template: `
     <div class="row">
-      <div class="col-md-6" dta-drop="$ctrl.dropped()" style="border:1px solid red">
+      <div class="col-md-6" dta-drop="$ctrl.dropped()">
         <h4>Pizza toppings</h4>
         <ul class="list-group">
           <li class="list-group-item" 

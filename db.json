@@ -2,7 +2,8 @@
   "pizzas": [
     {
       "id": 1,
-      "name": "Pizza"
+      "name": "Pizza",
+      "toppings": []
     },
     {
       "id": 2,
@@ -11,13 +12,66 @@
         "eggs",
         "mushrooms"
       ]
+    },
+    {
+      "name": "Egg Pizza",
+      "toppings": [
+        "eggs"
+      ],
+      "id": 3
+    },
+    {
+      "name": "new pizza",
+      "toppings": [
+        "eggs"
+      ],
+      "id": 4
+    },
+    {
+      "name": "Tomazzo",
+      "toppings": [
+        "tomato sauce",
+        "mozzarella"
+      ],
+      "id": 5
+    },
+    {
+      "name": "Bizzaro",
+      "toppings": [
+        "artichoke",
+        "green olives",
+        "sweet corn",
+        "peas"
+      ],
+      "id": 6
+    },
+    {
+      "name": "Olive",
+      "toppings": [
+        "black olives",
+        "black olives"
+      ],
+      "id": 7
+    },
+    {
+      "name": "Sandwich Pizza",
+      "toppings": [
+        "ham",
+        "eggs",
+        "mozzarella",
+        "salami"
+      ],
+      "id": 8
     }
   ],
-
   "toppings": {
-    "tomato sauce": { "fr": "Tomate" },
+    "tomato sauce": {
+      "fr": "Tomate"
+    },
     "mozzarella": {},
-    "mushrooms": { "fr": "Champignons" },
+    "mushrooms": {
+      "fr": "Champignons"
+    },
     "ham": {},
     "eggs": {},
     "artichoke": {},

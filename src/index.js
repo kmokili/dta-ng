@@ -22,8 +22,8 @@ angular.module('dtang', [
         `
       })
 
-      .when('/pizza/:id', {
-        templateUrl: 'pizza-form.html',
+      .when('/pizza/:id?', {
+        templateUrl: 'pizza-edit.html',
         controller: 'PizzaController',
         controllerAs: '$ctrl'
       })
